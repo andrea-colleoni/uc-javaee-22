@@ -15,18 +15,18 @@ public class AppJPA {
 		
 		EntityManager em = emf.createEntityManager();
 		
-//		Persona p = new Persona();
-//		p.setNome("Mario");
-//		p.setCognome("Rossi");
-//		p.setEmail("mario@rossi");
-//		p.setIndirizzi(new ArrayList<Indirizzo>());
-//		Indirizzo i = new Indirizzo();
-//		i.setCitta("Roma");
-//		i.setCivico(1);
-//		i.setVia("via");
-//		// creo un doppio collegamento tra le entità
-//		i.setPersona(p);
-//		p.getIndirizzi().add(i);
+		Persona p = new Persona();
+		p.setNome("Mario");
+		p.setCognome("Rossi");
+		p.setEmail("mario@rossi");
+
+		Indirizzo i = new Indirizzo();
+		i.setCitta("Roma");
+		i.setCivico(1);
+		i.setVia("via");
+		
+		// creo un doppio collegamento tra le entità
+		p.addIndirizzo(i);
 //		
 //		em.getTransaction().begin();
 //		// sincronizzazione con il DB (racchiusa in una TX)
