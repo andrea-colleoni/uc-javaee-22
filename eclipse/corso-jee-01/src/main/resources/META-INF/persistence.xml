@@ -2,10 +2,13 @@
 <persistence version="2.2" xmlns="http://xmlns.jcp.org/xml/ns/persistence" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/persistence http://xmlns.jcp.org/xml/ns/persistence/persistence_2_2.xsd">
 	<persistence-unit name="persistence-unit" transaction-type="RESOURCE_LOCAL">
 		<class>it.corso.jpa.Persona</class>
+		<class>it.corso.jpa.Indirizzo</class>
 		<properties>
 			<property name="javax.persistence.jdbc.driver" value="org.apache.derby.jdbc.EmbeddedDriver"/>
 			<property name="javax.persistence.jdbc.url" value="jdbc:derby:derbyDB;create=true"/>
 			<property name="javax.persistence.schema-generation.database.action" value="create"/>
+			<!-- custom property (non JPA, ma dipende dall'impl) -->
+			<property name="hibernate.show_sql" value = "true" />
 		</properties>
 	</persistence-unit>
 </persistence>
