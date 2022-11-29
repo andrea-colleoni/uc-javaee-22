@@ -5,13 +5,31 @@ import java.util.ArrayList;
 import java.util.List;
 
 import javax.persistence.CascadeType;
-import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.Id;
+import javax.persistence.Inheritance;
+import javax.persistence.InheritanceType;
+import javax.persistence.MappedSuperclass;
+import javax.persistence.NamedQueries;
+import javax.persistence.NamedQuery;
 import javax.persistence.OneToMany;
 
-@Entity(name = "TBL_PRS")
+@NamedQueries({
+	@NamedQuery(
+			name = "persona.elenco", 
+			query = "select p from Persona p"),
+	@NamedQuery(
+			name = "persona.perInizialeNome", 
+			query = "select p from Persona p where p.nome like :iniziale"),
+	@NamedQuery(
+			name = "persona.perInizialeCognome", 
+			query = "select p from Persona p where p.cognome like CONCAT(:iniziale, '%')")
+})
+@Entity
+//@Inheritance(strategy = InheritanceType.SINGLE_TABLE) // la superclasse deve essere abstract
+//@Inheritance(strategy = InheritanceType.JOINED)
+@Inheritance(strategy = InheritanceType.TABLE_PER_CLASS)
 public class Persona implements Serializable {
 
 	/**
@@ -19,7 +37,7 @@ public class Persona implements Serializable {
 	 */
 	private static final long serialVersionUID = 1L;
 	// POJO usando JavaBean
-	@Column(name = "NM001")
+//	@Column(name = "NM001")
 	private String nome;
 	private String cognome;
 	@Id

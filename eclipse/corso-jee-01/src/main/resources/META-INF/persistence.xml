@@ -3,10 +3,12 @@
 	<persistence-unit name="persistence-unit" transaction-type="RESOURCE_LOCAL">
 		<class>it.corso.jpa.Persona</class>
 		<class>it.corso.jpa.Indirizzo</class>
+		<class>it.corso.jpa.Citta</class>
+		<class>it.corso.jpa.Studente</class>
 		<properties>
 			<property name="javax.persistence.jdbc.driver" value="org.apache.derby.jdbc.EmbeddedDriver"/>
-			<property name="javax.persistence.jdbc.url" value="jdbc:derby:derbyDB;create=true"/>
-			<property name="javax.persistence.schema-generation.database.action" value="create"/>
+			<property name="javax.persistence.jdbc.url" value="jdbc:derby:ereditaDB;create=true"/>
+			<property name="javax.persistence.schema-generation.database.action" value="drop-and-create"/>
 			<!-- custom property (non JPA, ma dipende dall'impl) -->
 			<property name="hibernate.show_sql" value = "true" />
 		</properties>
