@@ -1,4 +1,4 @@
-package it.unicr.corso;
+package it.unicr.corso.rest;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -13,6 +13,8 @@ import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 import javax.ws.rs.core.Response.Status;
 
+import it.unicr.corso.Persona;
+
 @Path("/persone")
 public class PersoneResource {
 
@@ -21,7 +23,7 @@ public class PersoneResource {
 	public Response elencoPersone() {
 		return Response
 				// .ok(new ArrayList<Persona>()) // body della response
-				.ok()
+				.ok() // http 200: success
 				.entity(new ArrayList<Persona>())
 				.build();
 	}
