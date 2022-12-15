@@ -1,5 +1,4 @@
-- Start Glassfish: .\asadmin.bat start-domain
-- Manage Glassfish: http://localhost:4848
+- Manage WildFly: http://localhost:9990
 
 
 Links:
